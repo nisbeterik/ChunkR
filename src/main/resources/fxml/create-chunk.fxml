@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0"
+      prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" fx:controller="com.nisbeterik.chunkr.ChunkController"
+      xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="400.0" prefWidth="600.0">
+         <children>
+            <Button layoutX="245.0" layoutY="330.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="119.0" text="Create chunk" />
+            <Label layoutX="272.0" layoutY="36.0" text="Enter term" />
+            <TextField layoutX="226.0" layoutY="74.0" prefHeight="83.0" prefWidth="149.0" />
+            <Label layoutX="266.0" layoutY="183.0" text="Enter answer" />
+            <TextField layoutX="226.0" layoutY="223.0" prefHeight="83.0" prefWidth="149.0" />
+         </children>
+      </AnchorPane>
+   </children>
+</Pane>
