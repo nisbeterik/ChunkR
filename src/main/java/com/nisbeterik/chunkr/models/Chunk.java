@@ -6,9 +6,12 @@ public class Chunk {
 
     private String answer;
 
+    private int level;
+
     public Chunk(String term, String answer) {
         this.term = term;
         this.answer = answer;
+        this.level = 1;
     }
 
     @Override
@@ -16,6 +19,7 @@ public class Chunk {
         return "Chunk{" +
                 "term='" + term + '\'' +
                 ", answer='" + answer + '\'' +
-                '}';
+                ", level=" + level +'}'
+                ;
     }
 }
