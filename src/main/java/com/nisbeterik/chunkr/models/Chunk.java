@@ -14,6 +14,18 @@ public class Chunk {
         this.level = 1;
     }
 
+    public String getTerm() {
+        return term;
+    }
+
+    public String getAnswer() {
+        return answer;
+    }
+
+    public int getLevel() {
+        return level;
+    }
+
     @Override
     public String toString() {
         return "Chunk{" +
