@@ -1,5 +1,6 @@
 package com.nisbeterik.chunkr.storage;
 
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.json.JsonMapper;
 import com.fasterxml.jackson.databind.node.JsonNodeFactory;
@@ -11,11 +12,10 @@ import com.nisbeterik.chunkr.repository.Repository;
 
 import java.io.File;
 import java.io.IOException;
-import java.net.URISyntaxException;
 import java.nio.file.Files;
 import java.nio.file.LinkOption;
 import java.nio.file.Path;
-import java.util.Arrays;
+import java.util.Collection;
 import java.util.List;
 
 public final class FileStorageProvider implements StorageProvider {
@@ -28,7 +28,7 @@ public final class FileStorageProvider implements StorageProvider {
             .addModule(new JavaTimeModule())
             .build();
 
-    private LeitnerBoxRepository leitnerBoxRepository = Repositories.getLeitnerBoxRepository();
+    private final LeitnerBoxRepository leitnerBoxRepository = Repositories.getLeitnerBoxRepository();
 
 
     FileStorageProvider() {
@@ -51,17 +51,14 @@ public final class FileStorageProvider implements StorageProvider {
     public void load() throws IOException {
         ensureStorageFilesExist();
 
-        loadRepository(LEITNERBOXES_FILE, leitnerBoxRepository, LeitnerBox.class);
+        loadLeitnerBoxes(LEITNERBOXES_FILE, leitnerBoxRepository);
     }
 
-    private <T> void loadRepository(String fileName, Repository<T> repository, Class<T> tClass) throws IOException {
+    private <T> void loadLeitnerBoxes(String fileName, LeitnerBoxRepository repository) throws IOException {
         final File file = new File(STORAGE_FOLDER + "/" + fileName);
+        List<LeitnerBox> leitnerBoxes = objectMapper.readValue(file, new TypeReference<List<LeitnerBox>>() {});
 
-        T[] elements = (T[]) objectMapper.readValue(file, tClass.arrayType());
-
-        final List<T> ts = Arrays.asList(elements);
-
-        repository.load(ts);
+        repository.load(leitnerBoxes);
 
     }
 

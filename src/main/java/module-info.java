@@ -8,4 +8,7 @@ module com.nisbeterik.ChunkR {
     opens com.nisbeterik.chunkr to javafx.fxml;
 
     exports com.nisbeterik.chunkr;
+    exports com.nisbeterik.chunkr.controller;
+    opens com.nisbeterik.chunkr.models to com.fasterxml.jackson.databind;
+    opens com.nisbeterik.chunkr.controller to javafx.fxml;
 }

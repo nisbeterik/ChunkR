@@ -26,7 +26,7 @@ public class ChunkR extends Application {
     }
     @Override
     public void start(Stage stage) throws IOException {
-        final var hello = FXMLUtil.loadFxml("create-chunk");
+        final var hello = FXMLUtil.loadFxml("create-leitnerbox");
 
         final var scene = new Scene((Parent) hello);
         stage.setScene(scene);

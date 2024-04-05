@@ -3,7 +3,9 @@ package com.nisbeterik.chunkr.models;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
-import com.nisbeterik.chunkr.models.Levels;
+
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class LeitnerBox {
 
@@ -23,6 +25,15 @@ public class LeitnerBox {
         }
 
     }
+    @JsonCreator
+    public LeitnerBox(
+            @JsonProperty("BOX_ID") UUID boxId,
+            @JsonProperty("name") String name)
+    {
+        this.BOX_ID = boxId;
+        this.name = name;
+    }
+
 
     public UUID getBOX_ID() {return this.BOX_ID;}
 
