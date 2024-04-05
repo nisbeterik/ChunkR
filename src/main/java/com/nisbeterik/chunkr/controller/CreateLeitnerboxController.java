@@ -12,10 +12,11 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 
+import java.io.IOException;
 import java.lang.reflect.GenericDeclaration;
 
 
-public class CreateLeitnerboxController {
+public class CreateLeitnerboxController extends ParentController {
         @FXML
         public Button createChunkButton;
         @FXML
@@ -26,7 +27,8 @@ public class CreateLeitnerboxController {
         public TextField defField;
         @FXML
         public Label defLabel;
-        private LeitnerBoxRepository leitnerBoxRepository = Repositories.getLeitnerBoxRepository();
+    public Button redirectButton;
+    private LeitnerBoxRepository leitnerBoxRepository = Repositories.getLeitnerBoxRepository();
 
         private LeitnerBox testBox;
 
@@ -60,5 +62,10 @@ public class CreateLeitnerboxController {
         termField.deleteText(0, termField.getLength());
         defField.deleteText(0, defField.getLength());
         System.out.println("Chunk created");
+    }
+
+
+    public void pressRedirectButton(MouseEvent mouseEvent) throws IOException {
+        redirect(mouseEvent, "create-chunk");
     }
 }
