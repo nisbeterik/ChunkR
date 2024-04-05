@@ -3,9 +3,9 @@ package com.nisbeterik.chunkr.storage;
 import java.io.IOException;
 
 public interface StorageProvider {
-    void save();
+    void save() throws IOException;
 
-    void load();
+    void load() throws IOException;
 
     void reset();
 }

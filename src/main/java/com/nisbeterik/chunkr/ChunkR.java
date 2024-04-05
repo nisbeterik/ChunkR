@@ -17,7 +17,12 @@ public class ChunkR extends Application {
 
     @Override
     public void init() {
-        storageProvider.load();
+        try {
+            storageProvider.load();
+        }
+        catch (IOException e) {
+            throw new RuntimeException("Failed to load application state", e);
+        }
     }
     @Override
     public void start(Stage stage) throws IOException {
