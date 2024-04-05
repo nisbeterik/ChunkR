@@ -9,8 +9,6 @@
         <module name="ChunkR" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel target="19">
-      <module name="FlashX" target="11" />
-    </bytecodeTargetLevel>
+    <bytecodeTargetLevel target="19" />
   </component>
 </project>
