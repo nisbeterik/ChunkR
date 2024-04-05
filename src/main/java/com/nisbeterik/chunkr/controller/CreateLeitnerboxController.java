@@ -16,10 +16,15 @@ import java.lang.reflect.GenericDeclaration;
 
 
 public class CreateLeitnerboxController {
+        @FXML
         public Button createChunkButton;
+        @FXML
         public TextField termField;
+        @FXML
         public Label termLabel;
+        @FXML
         public TextField defField;
+        @FXML
         public Label defLabel;
         private LeitnerBoxRepository leitnerBoxRepository = Repositories.getLeitnerBoxRepository();
 
@@ -36,23 +41,24 @@ public class CreateLeitnerboxController {
         private Button createBoxButton;
 
 
-        @FXML
-        public void initialize() {
+    @FXML
+    public void initialize() {
 
-        }
-        @FXML
-        void pressCreateBox(MouseEvent event) {
+    }
 
-             testBox = leitnerBoxRepository.createLeitnerBox(createBoxField.getText());
-             createBoxField.deleteText(0, createBoxField.getLength());
-                System.out.println("Box created");
+    @FXML
+    void pressCreateBox(MouseEvent event) {
 
-        }
+        testBox = leitnerBoxRepository.createLeitnerBox(createBoxField.getText());
+        createBoxField.deleteText(0, createBoxField.getLength());
+        System.out.println("Box created");
 
-        public void pressCreateChunk(MouseEvent mouseEvent) {
-                testBox.addChunk(new Chunk(termField.getText(), defField.getText()));
-                termField.deleteText(0,termField.getLength());
-                defField.deleteText(0, defField.getLength());
-                System.out.println("Chunk created");
-        }
+    }
+    @FXML
+    public void pressCreateChunk(MouseEvent mouseEvent) {
+        testBox.addChunk(new Chunk(termField.getText(), defField.getText()));
+        termField.deleteText(0, termField.getLength());
+        defField.deleteText(0, defField.getLength());
+        System.out.println("Chunk created");
+    }
 }
