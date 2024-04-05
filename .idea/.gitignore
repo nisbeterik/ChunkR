@@ -39,6 +39,7 @@ target/
 /nbdist/
 /.nb-gradle/
 build/
+/storage/*.json
 !**/src/main/**/build/
 !**/src/test/**/build/
 
