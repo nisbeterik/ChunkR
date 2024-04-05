@@ -3,6 +3,7 @@ package com.nisbeterik.chunkr.models;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
+import com.nisbeterik.chunkr.models.Levels;
 
 public class LeitnerBox {
 
@@ -22,5 +23,18 @@ public class LeitnerBox {
         this.name = name;
     }
 
+    public void addChunk(Chunk chunk) {
+        levels.get(Levels.LEVEL_1.ordinal()).add(chunk);
+    }
 
+    public void moveToNextLevel(Chunk chunk) {
+        int currentLevel = chunk.getLevel();
+        if(currentLevel<NUM_LEVELS-1) {
+            chunk.setLevel(currentLevel+1);
+        }
+    }
+
+    public void resetLevel(Chunk chunk) {
+        chunk.setLevel(Levels.LEVEL_1.ordinal());
+    }
 }
