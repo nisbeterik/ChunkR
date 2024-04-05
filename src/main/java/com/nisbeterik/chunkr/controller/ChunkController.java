@@ -7,7 +7,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 
-public class ChunkController {
+public class ChunkController extends ParentController {
     @FXML
     private Label termLabel;
     @FXML
