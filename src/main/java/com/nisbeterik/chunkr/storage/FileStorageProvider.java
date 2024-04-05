@@ -15,7 +15,6 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.LinkOption;
 import java.nio.file.Path;
-import java.util.Collection;
 import java.util.List;
 
 public final class FileStorageProvider implements StorageProvider {
@@ -32,8 +31,6 @@ public final class FileStorageProvider implements StorageProvider {
 
 
     FileStorageProvider() {
-
-
     }
     @Override
     public void save() throws IOException {
