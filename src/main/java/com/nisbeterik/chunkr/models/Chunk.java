@@ -11,7 +11,7 @@ public class Chunk {
     public Chunk(String term, String answer) {
         this.term = term;
         this.answer = answer;
-        this.level = 1;
+        this.level = 0; // 0 = 1 since Arrays have 0-index
     }
 
     public String getTerm() {
@@ -24,6 +24,10 @@ public class Chunk {
 
     public int getLevel() {
         return level;
+    }
+
+    public void setLevel(int level) {
+        this.level = level;
     }
 
     @Override
