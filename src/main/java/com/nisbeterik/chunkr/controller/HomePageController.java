@@ -24,5 +24,6 @@ public class HomePageController extends ParentController{
     }
 
     public void pressMyBoxesButton(MouseEvent mouseEvent) {
+        redirect(mouseEvent, "my-boxes");
     }
 }
