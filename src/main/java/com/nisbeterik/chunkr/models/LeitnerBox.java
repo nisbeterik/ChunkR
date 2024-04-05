@@ -24,7 +24,7 @@ public class LeitnerBox {
 
     }
     @JsonCreator
-    public LeitnerBox(@JsonProperty("BOX_ID") UUID boxId,
+    public LeitnerBox(@JsonProperty("box_ID") UUID boxId,
                       @JsonProperty("name") String name,
                       @JsonProperty("levels") List<List<Chunk>> levels) {
         this.BOX_ID = boxId;
