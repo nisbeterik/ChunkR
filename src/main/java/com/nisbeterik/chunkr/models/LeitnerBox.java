@@ -13,29 +13,41 @@ public class LeitnerBox {
 
     private final UUID BOX_ID;
 
-    private String name;
+    private final String name;
 
     private final int NUM_LEVELS = 7;
 
     public LeitnerBox(String name) {
         this.name = name;
-        this.BOX_ID = UUID.fromString(name);
-        for(int i = 0; i<=NUM_LEVELS; i++) {
-            levels.add(new ArrayList<>());
-        }
+        this.BOX_ID = UUID.randomUUID();
+        this.levels = initializeLevels();
 
     }
     @JsonCreator
-    public LeitnerBox(
-            @JsonProperty("BOX_ID") UUID boxId,
-            @JsonProperty("name") String name)
-    {
+    public LeitnerBox(@JsonProperty("BOX_ID") UUID boxId,
+                      @JsonProperty("name") String name,
+                      @JsonProperty("levels") List<List<Chunk>> levels) {
         this.BOX_ID = boxId;
         this.name = name;
+        this.levels = levels == null ? initializeLevels() : levels;
     }
 
 
-    public UUID getBOX_ID() {return this.BOX_ID;}
+
+
+    public UUID getBOX_ID() {
+        return BOX_ID;
+    }
+
+
+    public String getName() {
+        return name;
+    }
+
+
+    public List<List<Chunk>> getLevels() {
+        return levels;
+    }
 
     public void addChunk(Chunk chunk) {
         levels.get(Levels.LEVEL_1.ordinal()).add(chunk);
@@ -50,5 +62,13 @@ public class LeitnerBox {
 
     public void resetLevel(Chunk chunk) {
         chunk.setLevel(Levels.LEVEL_1.ordinal());
+    }
+
+    private List<List<Chunk>> initializeLevels() {
+        List<List<Chunk>> newLevels = new ArrayList<>();
+        for (int i = 0; i <= NUM_LEVELS; i++) {
+            newLevels.add(new ArrayList<>());
+        }
+        return newLevels;
     }
 }

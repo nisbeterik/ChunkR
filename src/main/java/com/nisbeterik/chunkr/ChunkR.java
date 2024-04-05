@@ -9,6 +9,8 @@ import javafx.application.Application;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
+
 import java.io.IOException;
 
 public class ChunkR extends Application {
@@ -31,9 +33,20 @@ public class ChunkR extends Application {
         final var scene = new Scene((Parent) hello);
         stage.setScene(scene);
         stage.setResizable(false);
-        
-        stage.setOnCloseRequest(e -> System.exit(0));
+        stage.setOnCloseRequest(this::onCloseCallback);
         stage.show();
+    }
+    private void onCloseCallback(WindowEvent windowEvent) {
+        saveApplicationState();
+        System.exit(0);
+    }
+
+    private void saveApplicationState() {
+        try {
+            storageProvider.save();
+        } catch (IOException e) {
+            throw new RuntimeException("Failed to save application state", e);
+        }
     }
 
     public static void main(String[] args) {
