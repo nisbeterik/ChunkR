@@ -16,11 +16,12 @@ public class LeitnerBox {
     private final int NUM_LEVELS = 7;
 
     public LeitnerBox(String name) {
-        this.BOX_ID = UUID.randomUUID();
+        this.name = name;
+        this.BOX_ID = UUID.fromString(name);
         for(int i = 0; i<=NUM_LEVELS; i++) {
             levels.add(new ArrayList<>());
         }
-        this.name = name;
+
     }
 
     public void addChunk(Chunk chunk) {
