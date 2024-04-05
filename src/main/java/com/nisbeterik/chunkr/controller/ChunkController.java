@@ -1,4 +1,4 @@
-package com.nisbeterik.chunkr;
+package com.nisbeterik.chunkr.controller;
 
 import com.nisbeterik.chunkr.models.Chunk;
 import javafx.fxml.FXML;
