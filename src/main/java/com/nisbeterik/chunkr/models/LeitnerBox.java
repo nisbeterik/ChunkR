@@ -24,6 +24,8 @@ public class LeitnerBox {
 
     }
 
+    public UUID getBOX_ID() {return this.BOX_ID;}
+
     public void addChunk(Chunk chunk) {
         levels.get(Levels.LEVEL_1.ordinal()).add(chunk);
     }
