@@ -2,6 +2,9 @@ package com.nisbeterik.chunkr;
 
 
 import com.nisbeterik.chunkr.Utils.FXMLUtil;
+import com.nisbeterik.chunkr.storage.StorageProvider;
+import com.nisbeterik.chunkr.storage.StorageProviderFactory;
+import com.nisbeterik.chunkr.storage.StorageProviderType;
 import javafx.application.Application;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -9,6 +12,13 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class ChunkR extends Application {
+
+    private final StorageProvider storageProvider = StorageProviderFactory.getStorageProvider(StorageProviderType.FILE);
+
+    @Override
+    public void init() {
+        storageProvider.load();
+    }
     @Override
     public void start(Stage stage) throws IOException {
         final var hello = FXMLUtil.loadFxml("create-chunk");
