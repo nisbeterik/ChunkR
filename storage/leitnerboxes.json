@@ -5,5 +5,13 @@
     "term" : "verslaan",
     "answer" : "beat ",
     "level" : 0
+  }, {
+    "term" : "kleur",
+    "answer" : "color",
+    "level" : 0
+  }, {
+    "term" : "bedankt",
+    "answer" : "thanks",
+    "level" : 0
   } ], [ ], [ ], [ ], [ ], [ ], [ ], [ ] ]
 } ]

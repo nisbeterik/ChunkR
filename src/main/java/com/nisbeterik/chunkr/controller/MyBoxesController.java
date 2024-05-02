@@ -49,6 +49,6 @@ public class MyBoxesController extends ParentController {
     }
 
     public void pressHomePageButton(MouseEvent mouseEvent) {
-        redirect(mouseEvent, "home-page");
+        redirect(mouseEvent, "home-page.fxml");
     }
 }
