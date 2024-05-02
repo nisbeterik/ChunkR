@@ -20,7 +20,7 @@ public class HomePageController extends ParentController{
     }
 
     public void pressCreateBoxButton(MouseEvent mouseEvent) {
-
+            redirect(mouseEvent, "create-leitnerbox.fxml");
     }
 
     public void pressMyBoxesButton(MouseEvent mouseEvent) {
