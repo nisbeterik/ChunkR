@@ -8,13 +8,11 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.ObservableSet;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.ListCell;
-import javafx.scene.control.ListView;
+import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 
 public class MyBoxesController extends ParentController {
+    public Button practiceBoxButton;
     private LeitnerBoxRepository leitnerBoxRepository = Repositories.getLeitnerBoxRepository();
     @FXML
     public ListView<LeitnerBox> leitnerboxListView;
@@ -27,12 +25,12 @@ public class MyBoxesController extends ParentController {
     void initialize() {
         myBoxesLabel.setText("My Boxes");
         backToHomePageButton.setText("Back to Home Page");
+        practiceBoxButton.setVisible(false);
 
-        // Convert the Set<LeitnerBox> to an ObservableList<LeitnerBox>
         ObservableSet<LeitnerBox> boxSet = FXCollections.observableSet(leitnerBoxRepository.getAll());
         ObservableList<LeitnerBox> boxes = FXCollections.observableArrayList(boxSet);
 
-        // Set the cell factory
+
         leitnerboxListView.setCellFactory(lv -> new ListCell<LeitnerBox>() {
             @Override
             protected void updateItem(LeitnerBox box, boolean empty) {
@@ -40,12 +38,20 @@ public class MyBoxesController extends ParentController {
                 if (empty || box == null) {
                     setText(null);
                 } else {
-                    setText(box.getName());
+                    setText(String.format("%s (Stage %d)", box.getName(), box.getCurrentStage()));
                 }
             }
         });
-
         leitnerboxListView.setItems(boxes);
+        leitnerboxListView.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+            practiceBoxButton.setVisible(true);
+        });
+    }
+
+    public void pressPracticeBox(MouseEvent mouseEvent) {
+        LeitnerBox selectedBox = leitnerboxListView.getSelectionModel().getSelectedItem();
+        setPracticeBox(selectedBox.getName());
+        redirect(mouseEvent, "practice-box");
     }
 
     public void pressHomePageButton(MouseEvent mouseEvent) {

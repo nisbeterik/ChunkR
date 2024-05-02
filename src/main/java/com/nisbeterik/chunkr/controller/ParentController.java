@@ -11,6 +11,12 @@ import java.io.IOException;
 
 public class ParentController {
 
+    public String practiceBox;
+
+    public void setPracticeBox(String name) {
+        this.practiceBox = name;
+    }
+
     protected void redirect(Event event, String fxml) {
         Parent fxmlFile = FXMLUtil.loadFxml(fxml);
         Scene scene = new Scene(fxmlFile);
