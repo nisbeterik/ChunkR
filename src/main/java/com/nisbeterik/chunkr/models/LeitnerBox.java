@@ -55,12 +55,15 @@ public class LeitnerBox {
 
     public void moveToNextLevel(Chunk chunk) {
         int currentLevel = chunk.getLevel();
-        if(currentLevel<NUM_LEVELS-1) {
-            chunk.setLevel(currentLevel+1);
+        if (currentLevel >= 0 && currentLevel < NUM_LEVELS - 1) {
+            levels.get(currentLevel).remove(chunk);
+            chunk.setLevel(currentLevel + 1);
+            levels.get(currentLevel + 1).add(chunk);
         }
     }
 
     public void resetLevel(Chunk chunk) {
+
         chunk.setLevel(Levels.LEVEL_1.ordinal());
     }
 
