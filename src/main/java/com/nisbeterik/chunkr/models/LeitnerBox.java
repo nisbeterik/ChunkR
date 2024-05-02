@@ -63,8 +63,14 @@ public class LeitnerBox {
     }
 
     public void resetLevel(Chunk chunk) {
+        int currentLevel = chunk.getLevel();
+        if (currentLevel > 0 && currentLevel < NUM_LEVELS - 1) {
+            levels.get(currentLevel).remove(chunk);
+            chunk.setLevel(Levels.LEVEL_1.ordinal());
+            levels.get(Levels.LEVEL_1.ordinal()).add(chunk);
+        }
 
-        chunk.setLevel(Levels.LEVEL_1.ordinal());
+
     }
 
     private List<List<Chunk>> initializeLevels() {
