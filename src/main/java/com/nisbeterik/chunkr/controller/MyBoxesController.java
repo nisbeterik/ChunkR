@@ -14,7 +14,7 @@ import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.scene.input.MouseEvent;
 
-public class MyBoxesController {
+public class MyBoxesController extends ParentController {
     private LeitnerBoxRepository leitnerBoxRepository = Repositories.getLeitnerBoxRepository();
     @FXML
     public ListView<LeitnerBox> leitnerboxListView;
@@ -49,5 +49,6 @@ public class MyBoxesController {
     }
 
     public void pressHomePageButton(MouseEvent mouseEvent) {
+        redirect(mouseEvent, "home-page");
     }
 }
