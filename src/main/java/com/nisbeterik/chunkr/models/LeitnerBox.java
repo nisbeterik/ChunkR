@@ -9,6 +9,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class LeitnerBox {
 
+    private final int MAX_STAGE = 64;
+
     private List<List<Chunk>> levels;
 
     private final UUID BOX_ID;
@@ -17,10 +19,13 @@ public class LeitnerBox {
 
     private final int NUM_LEVELS = 7;
 
+    private int currentStage;
+
     public LeitnerBox(String name) {
         this.name = name;
         this.BOX_ID = UUID.randomUUID();
         this.levels = initializeLevels();
+        this.currentStage = 1;
 
     }
     @JsonCreator
@@ -30,6 +35,7 @@ public class LeitnerBox {
         this.BOX_ID = boxId;
         this.name = name;
         this.levels = levels == null ? initializeLevels() : levels;
+        this.currentStage = currentStage;
     }
 
 
@@ -49,6 +55,10 @@ public class LeitnerBox {
         return levels;
     }
 
+    public int getCurrentStage() {
+        return currentStage;
+    }
+
     public void addChunk(Chunk chunk) {
         levels.get(Levels.LEVEL_1.ordinal()).add(chunk);
     }
@@ -64,13 +74,24 @@ public class LeitnerBox {
 
     public void resetLevel(Chunk chunk) {
         int currentLevel = chunk.getLevel();
-        if (currentLevel > 0 && currentLevel < NUM_LEVELS - 1) {
+        if (currentLevel > Levels.LEVEL_1.ordinal() && currentLevel < NUM_LEVELS - 1) {
             levels.get(currentLevel).remove(chunk);
             chunk.setLevel(Levels.LEVEL_1.ordinal());
             levels.get(Levels.LEVEL_1.ordinal()).add(chunk);
         }
 
 
+    }
+
+    public List<Chunk> getLevelList(int level) {
+        return levels.get(level);
+    }
+
+    public void moveToNextStage() {
+        this.currentStage++;
+        if(this.currentStage >= MAX_STAGE) {
+            this.currentStage = 1;
+        }
     }
 
     private List<List<Chunk>> initializeLevels() {
