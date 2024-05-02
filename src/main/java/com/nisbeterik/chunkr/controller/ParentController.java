@@ -11,10 +11,12 @@ import java.io.IOException;
 
 public class ParentController {
 
-    public String practiceBox;
+
+
+    protected static String practiceBox;
 
     public void setPracticeBox(String name) {
-        this.practiceBox = name;
+        practiceBox = name;
     }
 
     protected void redirect(Event event, String fxml) {
