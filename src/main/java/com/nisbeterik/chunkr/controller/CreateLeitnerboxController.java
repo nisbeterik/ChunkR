@@ -27,7 +27,8 @@ public class CreateLeitnerboxController extends ParentController {
         public TextField defField;
         @FXML
         public Label defLabel;
-    public Button redirectButton;
+
+    public Button homePageButton;
     private LeitnerBoxRepository leitnerBoxRepository = Repositories.getLeitnerBoxRepository();
 
         private LeitnerBox testBox;
@@ -65,7 +66,7 @@ public class CreateLeitnerboxController extends ParentController {
     }
 
 
-    public void pressRedirectButton(MouseEvent mouseEvent) throws IOException {
-        redirect(mouseEvent, "create-chunk");
+    public void pressHomePage(MouseEvent mouseEvent) throws IOException {
+        redirect(mouseEvent, "home-page");
     }
 }

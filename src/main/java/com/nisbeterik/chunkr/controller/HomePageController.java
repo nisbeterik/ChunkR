@@ -11,6 +11,7 @@ public class HomePageController extends ParentController{
     public Label headerLabel;
     public Button createBoxButton;
     public Button myBoxesButton;
+    public Button createChunkButton;
 
     @FXML
     void initialize() {
@@ -19,11 +20,11 @@ public class HomePageController extends ParentController{
         myBoxesButton.setText("My Boxes");
     }
 
-    public void pressCreateBoxButton(MouseEvent mouseEvent) {
-            redirect(mouseEvent, "create-leitnerbox.fxml");
-    }
+    public void pressCreateBoxButton(MouseEvent mouseEvent) { redirect(mouseEvent, "create-leitnerbox.fxml"); }
 
     public void pressMyBoxesButton(MouseEvent mouseEvent) {
         redirect(mouseEvent, "my-boxes");
     }
+
+    public void pressCreateChunkButton(MouseEvent mouseEvent)  { redirect(mouseEvent, "create-chunk.fxml"); }
 }
