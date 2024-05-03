@@ -9,6 +9,7 @@ import com.nisbeterik.chunkr.repository.Repositories;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import javax.swing.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -96,7 +97,18 @@ public class BoxPracticeHandlerTest {
 
     @Test
     void testChunksInLevels_emptyLevelList() {
-        assertEquals(bp.getChunksInLevel(), box.getLevelList(1));
+        // first levelsToPractice = empty
+        assertEquals(bp2.getChunksInLevel(), box2.getLevelList(0));
+    }
+
+    @Test
+    void testChunksInLevels_allLevelsEmpty() {
+        LeitnerBox box3 = new LeitnerBox("emptybox");
+        BoxPracticeHandler bp3 = new BoxPracticeHandler(box3);
+        assertTrue(bp3.getChunksInLevel().isEmpty(), String.valueOf(box.getLevelList(1).isEmpty()));
+        assertTrue(bp3.getChunksInLevel().isEmpty(), String.valueOf(box.getLevelList(0).isEmpty()));
+        assertTrue(bp3.isPracticeOver());
+        assertNull(bp3.getCurrentChunk());
     }
 
     @Test
@@ -108,6 +120,10 @@ public class BoxPracticeHandlerTest {
      * Method tests
      */
 
+    @Test
+    void testSetNextChunk_Normal() {
+
+    }
 
 
 
