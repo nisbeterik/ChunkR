@@ -1,14 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="fxml.PracticeBox"
-            prefHeight="400.0" prefWidth="600.0" >
-
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.nisbeterik.chunkr.controller.PracticeBoxController">
+   <VBox alignment="CENTER" layoutX="265.0" layoutY="139.0" spacing="20.0">
+      <Label fx:id="termLabel" prefHeight="27.0" prefWidth="3.0" style="-fx-font-size: 18;" />
+      <Button onAction="#flipTerm" text="Flip" />
+   </VBox>
+   <VBox alignment="CENTER" layoutX="228.0" layoutY="287.0" spacing="10.0">
+      <Label text="Do you know this term?" />
+      <HBox spacing="20.0">
+         <Button onAction="#knowTerm" text="Know" />
+         <Button onAction="#dontKnowTerm" text="Don't Know" />
+      </HBox>
+   </VBox>
+   <Label fx:id="boxName" layoutX="269.0" layoutY="38.0" />
+   <Label fx:id="currentLevel" layoutX="269.0" layoutY="71.0" />
 </AnchorPane>
