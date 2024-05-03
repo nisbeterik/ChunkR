@@ -102,5 +102,8 @@ public class LeitnerBox {
         return newLevels;
     }
 
-
+    @Override
+    public String toString() {
+        return "LeitnerBox{" + name + "}";
+    }
 }
