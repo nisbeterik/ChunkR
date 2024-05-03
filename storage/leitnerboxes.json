@@ -13,5 +13,10 @@
     "term" : "bedankt",
     "answer" : "thanks",
     "level" : 0
-  } ], [ ], [ ], [ ], [ ], [ ], [ ], [ ] ]
+  } ], [ ], [ {
+    "term" : "mannen",
+    "answer" : "the men",
+    "level" : 2
+  } ], [ ], [ ], [ ], [ ], [ ] ],
+  "currentStage" : 1
 } ]
