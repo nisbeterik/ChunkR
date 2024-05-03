@@ -3,6 +3,8 @@ package com.nisbeterik.chunkr.models;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import java.util.Objects;
+
 public class Chunk {
 
     private String term;
@@ -41,6 +43,20 @@ public class Chunk {
 
     public void setLevel(int level) {
         this.level = level;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Chunk chunk = (Chunk) o;
+        return Objects.equals(term, chunk.term) &&
+                Objects.equals(answer, chunk.answer);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(term, answer);
     }
 
     @Override
