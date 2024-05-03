@@ -20,8 +20,14 @@ public class LeitnerBoxRepository implements Repository<LeitnerBox> {
         return box;
     }
 
-    public Optional<LeitnerBox> getLeitnerBox(String name) {
-        return boxes.stream().filter(leitnerBox -> leitnerBox.getBOX_ID().equals(UUID.fromString(name))).findAny();
+    public LeitnerBox getLeitnerBoxByName(String name) {
+        for (LeitnerBox box : boxes) {
+            System.out.println("Checking box: " + box.getName());
+            if (box.getName().equals(name)) {
+                return box;
+            }
+        }
+        return null;
     }
 
     public void addChunkToBox(Chunk chunk, String name) {
