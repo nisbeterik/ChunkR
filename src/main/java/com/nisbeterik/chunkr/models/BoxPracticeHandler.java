@@ -63,8 +63,13 @@ public class BoxPracticeHandler {
             this.practiceOver = true;
         } else {
             setChunksInLevel(levelsToPractice.get(this.levelCounter));
+            if(chunksInLevel.isEmpty()) {
+                updateLevelCounter();
+            } else {
+                setCurrentChunk(getChunksInLevel().get(chunkCounter));
+            }
 
-            setCurrentChunk(getChunksInLevel().get(chunkCounter));
+
         }
     }
 
