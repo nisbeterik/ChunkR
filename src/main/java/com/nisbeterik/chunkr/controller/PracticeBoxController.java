@@ -34,7 +34,7 @@ public class PracticeBoxController extends ParentController {
         termLabel.setText(handler.getCurrentChunk().getTerm());
         termFlipped = false;
         boxName.setText(handler.getName());
-        currentLevel.setText(String.valueOf(handler.getCurrentLevel()));
+        currentLevel.setText("Level: " + handler.getCurrentLevel());
         practiceOverButton.setVisible(false);
 
     }

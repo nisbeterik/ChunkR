@@ -115,7 +115,7 @@ public class BoxPracticeHandler {
     }
 
     public int getCurrentLevel() {
-        return levelsToPractice.get(levelCounter);
+        return levelsToPractice.get(levelCounter) + 1;
     }
 
     public List<Integer> getLevelsToPractice() {
