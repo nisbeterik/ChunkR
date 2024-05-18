@@ -5,14 +5,9 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.nisbeterik.chunkr.controller.CreateLeitnerboxController">
    <children>
-      <TextField fx:id="createBoxField" layoutX="14.0" layoutY="72.0" prefHeight="109.0" prefWidth="236.0" />
-      <Label fx:id="createBoxLabel" layoutX="41.0" layoutY="40.0" text="Enter name for box" />
-      <Button fx:id="createBoxButton" layoutX="55.0" layoutY="208.0" mnemonicParsing="false" onMouseClicked="#pressCreateBox" text="Create box" />
-      <Button fx:id="createChunkButton" layoutX="410.0" layoutY="208.0" mnemonicParsing="false" onMouseClicked="#pressCreateChunk" text="Create chunk in box" />
-      <TextField fx:id="termField" layoutX="330.0" layoutY="71.0" prefHeight="109.0" prefWidth="129.0" />
-      <Label fx:id="termLabel" layoutX="354.0" layoutY="49.0" text="Enter term" />
-      <Label fx:id="defLabel" layoutX="491.0" layoutY="49.0" text="Enter definition" />
-      <TextField fx:id="defField" layoutX="468.0" layoutY="71.0" prefHeight="109.0" prefWidth="129.0" />
-      <Button fx:id="homePageButton" layoutX="258.0" layoutY="293.0" mnemonicParsing="false" onMouseClicked="#pressHomePage" text="Switch scene" />
+      <TextField fx:id="createBoxField" layoutX="186.0" layoutY="100.0" prefHeight="25.0" prefWidth="236.0" />
+      <Label fx:id="createBoxLabel" layoutX="253.0" layoutY="75.0" text="Enter name for box" />
+      <Button fx:id="createBoxButton" layoutX="263.0" layoutY="145.0" mnemonicParsing="false" onMouseClicked="#pressCreateBox" text="Create box" />
+      <Button fx:id="homePageButton" layoutX="255.0" layoutY="293.0" mnemonicParsing="false" onMouseClicked="#pressHomePage" text="Back to Home" />
    </children>
 </AnchorPane>
