@@ -3,7 +3,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.nisbeterik.chunkr.controller.ChunkController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.nisbeterik.chunkr.controller.CreateChunkController">
    <children>
       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="400.0" prefWidth="600.0">
          <children>
@@ -15,6 +15,7 @@
             <ChoiceBox fx:id="boxDropDown" layoutX="32.0" layoutY="74.0" prefWidth="150.0" />
             <Label layoutX="32.0" layoutY="45.0" text="Choose Box" />
             <Label fx:id="reqChoiceLabel" layoutX="32.0" layoutY="107.0" textFill="RED" />
+            <Button fx:id="backToHomePage" layoutX="32.0" layoutY="151.0" mnemonicParsing="false" onMouseClicked="#pressBackToMenu" text="Back To Home Page" />
          </children>
       </AnchorPane>
    </children>

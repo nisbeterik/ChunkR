@@ -15,9 +15,10 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 
-public class ChunkController extends ParentController {
+public class CreateChunkController extends ParentController {
     public ChoiceBox boxDropDown;
     public Label reqChoiceLabel;
+    public Button backToHomePage;
     @FXML
     private Label termLabel;
     @FXML
@@ -62,5 +63,10 @@ public class ChunkController extends ParentController {
             reqChoiceLabel.setText("Please select a box");
         }
 
+    }
+    
+    @FXML
+    private void pressBackToMenu(MouseEvent event) {
+        redirect(event, "home-page");
     }
 }
