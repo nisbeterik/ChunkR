@@ -40,9 +40,15 @@ public class PracticeBoxController extends ParentController {
     }
 
     private void updateTermLabel() {
-        termFlipped = false;
-        termLabel.setText(handler.getCurrentChunk().getTerm());
-        currentLevel.setText(String.valueOf(handler.getCurrentLevel()));
+        if(!handler.isPracticeOver()) {
+            termFlipped = false;
+            termLabel.setText(handler.getCurrentChunk().getTerm());
+            currentLevel.setText(String.valueOf(handler.getCurrentLevel()));
+        }
+        else {
+            practiceOver();
+        }
+
     }
 
     @FXML
