@@ -1,21 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.canvas.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.nisbeterik.chunkr.controller.CreateChunkController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.nisbeterik.chunkr.controller.CreateChunkController">
    <children>
-      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="400.0" prefWidth="600.0">
+      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="600.0" prefWidth="800.0">
          <children>
-            <Button fx:id="createChunkButton" layoutX="245.0" layoutY="330.0" mnemonicParsing="false" onMouseClicked="#pressCreateChunk" prefHeight="32.0" prefWidth="119.0" text="Create chunk" />
-            <Label fx:id="termLabel" layoutX="272.0" layoutY="36.0" text="Enter term" />
-            <TextField fx:id="termField" layoutX="226.0" layoutY="74.0" prefHeight="83.0" prefWidth="149.0" />
-            <Label fx:id="definitionLabel" layoutX="266.0" layoutY="183.0" text="Enter answer" />
-            <TextField fx:id="definitionField" layoutX="226.0" layoutY="223.0" prefHeight="83.0" prefWidth="149.0" />
+            <Button fx:id="createChunkButton" layoutX="345.0" layoutY="530.0" mnemonicParsing="false" onMouseClicked="#pressCreateChunk" prefHeight="32.0" prefWidth="119.0" text="Create chunk" />
+            <Label fx:id="termLabel" layoutX="216.0" layoutY="183.0" text="Enter term" />
+            <TextField fx:id="termField" layoutX="169.0" layoutY="217.0" prefHeight="83.0" prefWidth="149.0" />
+            <Label fx:id="definitionLabel" layoutX="210.0" layoutY="332.0" text="Enter answer" />
+            <TextField fx:id="definitionField" layoutX="169.0" layoutY="361.0" prefHeight="83.0" prefWidth="149.0" />
             <ChoiceBox fx:id="boxDropDown" layoutX="32.0" layoutY="74.0" prefWidth="150.0" />
             <Label layoutX="32.0" layoutY="45.0" text="Choose Box" />
             <Label fx:id="reqChoiceLabel" layoutX="32.0" layoutY="107.0" textFill="RED" />
             <Button fx:id="backToHomePage" layoutX="32.0" layoutY="151.0" mnemonicParsing="false" onMouseClicked="#pressBackToMenu" text="Back To Home Page" />
+            <StackPane fx:id="canvasPane" layoutX="377.0" layoutY="147.0" prefHeight="306.0" prefWidth="374.0" styleClass="canvasPane" stylesheets="@../CSS/canvas-style.css">
+               <children>
+                  <Canvas fx:id="drawCanvas" height="306.0" width="374.0" />
+               </children>
+            </StackPane>
+            <Label layoutX="506.0" layoutY="99.0" text="Draw image for chunk" />
          </children>
       </AnchorPane>
    </children>

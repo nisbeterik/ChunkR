@@ -6,7 +6,12 @@ import com.nisbeterik.chunkr.repository.Repositories;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+
+import java.io.ByteArrayInputStream;
+import java.util.Base64;
 
 
 public class PracticeBoxController extends ParentController {
@@ -17,6 +22,8 @@ public class PracticeBoxController extends ParentController {
     public Button practiceOverButton;
     public Button flipButton;
     public Label doYouKnowLabel;
+    public Button endPracticeButton;
+    public ImageView chunkImageView;
     @FXML
     private Label termLabel;
 
@@ -37,6 +44,7 @@ public class PracticeBoxController extends ParentController {
         currentLevel.setText("Level: " + handler.getCurrentLevel());
         practiceOverButton.setVisible(false);
 
+
     }
 
     private void updateTermLabel() {
@@ -44,6 +52,7 @@ public class PracticeBoxController extends ParentController {
             termFlipped = false;
             termLabel.setText(handler.getCurrentChunk().getTerm());
             currentLevel.setText(String.valueOf(handler.getCurrentLevel()));
+            loadImageFromBase64(handler.getCurrentChunk().getImageData());
         }
         else {
             practiceOver();
@@ -79,12 +88,20 @@ public class PracticeBoxController extends ParentController {
     @FXML
     private void dontKnowTerm() {
         handler.dontKnowChunk();
+        if(!handler.isPracticeOver()) {
+            updateTermLabel();
+        }
+        else {
+            practiceOver();
+        }
     }
 
     @FXML
     private void endPractice(MouseEvent event) {
         returnToMyBoxes(event);
     }
+
+
 
     private void practiceOver() {
         dontKnowButton.setVisible(false);
@@ -93,6 +110,18 @@ public class PracticeBoxController extends ParentController {
         doYouKnowLabel.setVisible(false);
         flipButton.setVisible(false);
         practiceOverButton.setVisible(true);
+    }
+
+    public void loadImageFromBase64(String base64ImageData) {
+        if (base64ImageData != null && !base64ImageData.isEmpty()) {
+            byte[] imageData = Base64.getDecoder().decode(base64ImageData);
+            Image image = new Image(new ByteArrayInputStream(imageData));
+            chunkImageView.setImage(image);
+        } else {
+            // Handle case where imageData is empty or null
+            // You can set a placeholder image or display a message
+            System.out.println("No image data available.");
+        }
     }
 
     @FXML
