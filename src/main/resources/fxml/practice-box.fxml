@@ -1,15 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Text?>
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.nisbeterik.chunkr.controller.PracticeBoxController">
-   <VBox alignment="CENTER" layoutX="145.0" layoutY="139.0" prefHeight="117.0" prefWidth="306.0" spacing="20.0">
-      <Label fx:id="termLabel" style="-fx-font-size: 18;" />
-      <ImageView fx:id="chunkImageView" fitWidth="200.0" fitHeight="200.0" />
-      <Button fx:id="practiceOverButton" mnemonicParsing="false" onMouseClicked="#returnToMyBoxes" text="Button" />
+   <VBox fx:id="vboxOne" alignment="CENTER" layoutX="146.0" layoutY="163.0" prefWidth="306.0" spacing="20.0">
+      <ScrollPane fx:id="termScrollPane" prefHeight="200.0" prefWidth="200.0">
+         <content>
+            <VBox>
+               <Text fx:id="termText" style="-fx-font-size: 14;" />
+            </VBox>
+         </content>
+      </ScrollPane>
       <Button fx:id="flipButton" onAction="#flipTerm" text="Flip" />
+      <Button fx:id="practiceOverButton" mnemonicParsing="false" onMouseClicked="#returnToMyBoxes" text="Go Back" />
    </VBox>
    <VBox alignment="CENTER" layoutX="228.0" layoutY="287.0" spacing="10.0">
       <Label fx:id="doYouKnowLabel" text="Do you know this term?" />
@@ -21,4 +26,6 @@
    <Label fx:id="boxName" layoutX="269.0" layoutY="38.0" />
    <Label fx:id="currentLevel" layoutX="269.0" layoutY="71.0" />
    <Button fx:id="endPracticeButton" layoutX="37.0" layoutY="34.0" mnemonicParsing="false" onMouseClicked="#endPractice" text="End Practice" />
+   <ImageView fx:id="chunkImageView" fitHeight="200.0" fitWidth="200.0" layoutX="386.0" layoutY="80.0" />
+   <Button fx:id="showAnswerButton" layoutX="242.0" layoutY="127.0" mnemonicParsing="false" onMouseClicked="#showAnswer" text="Show Text Answer" />
 </AnchorPane>

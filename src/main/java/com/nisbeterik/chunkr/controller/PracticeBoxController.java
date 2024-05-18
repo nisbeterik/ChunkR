@@ -6,15 +6,19 @@ import com.nisbeterik.chunkr.repository.Repositories;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.text.Text;
+import javafx.scene.layout.VBox;
 
 import java.io.ByteArrayInputStream;
 import java.util.Base64;
 
 
 public class PracticeBoxController extends ParentController {
+
     public Label boxName;
     public Label currentLevel;
     public Button knowButton;
@@ -24,8 +28,12 @@ public class PracticeBoxController extends ParentController {
     public Label doYouKnowLabel;
     public Button endPracticeButton;
     public ImageView chunkImageView;
+    public Button showAnswerButton;
+    public VBox vboxOne;
     @FXML
-    private Label termLabel;
+    private Text termText; // Changed from Label to Text
+    @FXML
+    private ScrollPane termScrollPane; // Added ScrollPane for text wrapping
 
     private String term;
     private boolean termFlipped;
@@ -37,40 +45,50 @@ public class PracticeBoxController extends ParentController {
     @FXML
     public void initialize() {
         handler = new BoxPracticeHandler(leitnerBoxRepository.getLeitnerBoxByName(practiceBox));
-        termLabel.setWrapText(true);
-        termLabel.setText(handler.getCurrentChunk().getTerm());
+        termText.setWrappingWidth(200);
+        termScrollPane.setContent(new VBox(termText));
+        termText.setText(handler.getCurrentChunk().getTerm());
         termFlipped = false;
         boxName.setText(handler.getName());
         currentLevel.setText("Level: " + handler.getCurrentLevel());
         practiceOverButton.setVisible(false);
+        loadImageFromBase64(handler.getCurrentChunk().getImageData());
+        chunkImageView.setVisible(false);
+        showAnswerButton.setVisible(false);
 
-
+        vboxOne.prefHeightProperty().bind(termScrollPane.heightProperty().add(20));
     }
 
     private void updateTermLabel() {
         if(!handler.isPracticeOver()) {
             termFlipped = false;
-            termLabel.setText(handler.getCurrentChunk().getTerm());
+            termText.setText(handler.getCurrentChunk().getTerm()); // Change to setText for Text node
             currentLevel.setText(String.valueOf(handler.getCurrentLevel()));
             loadImageFromBase64(handler.getCurrentChunk().getImageData());
+            chunkImageView.setVisible(false);
+            flipButton.setVisible(true);
         }
         else {
             practiceOver();
         }
-
     }
 
     @FXML
     private void flipTerm() {
         if(!termFlipped) {
-            termLabel.setText(handler.getCurrentChunk().getAnswer());
+            termText.setVisible(false);
+            termText.setText(handler.getCurrentChunk().getTerm());
+            chunkImageView.setVisible(true);
+            showAnswerButton.setVisible(true);
             termFlipped = true;
         }
         else {
-            termLabel.setText(handler.getCurrentChunk().getTerm());
+            termText.setText(handler.getCurrentChunk().getTerm());
+            termText.setVisible(true);
+            chunkImageView.setVisible(false);
+            showAnswerButton.setVisible(false);
             termFlipped = false;
         }
-
     }
 
     @FXML
@@ -81,8 +99,8 @@ public class PracticeBoxController extends ParentController {
         }
         else {
             practiceOver();
+            chunkImageView.setVisible(false);
         }
-
     }
 
     @FXML
@@ -101,12 +119,10 @@ public class PracticeBoxController extends ParentController {
         returnToMyBoxes(event);
     }
 
-
-
     private void practiceOver() {
         dontKnowButton.setVisible(false);
         knowButton.setVisible(false);
-        termLabel.setText("Practice is over");
+        termText.setText("Practice is over");
         doYouKnowLabel.setVisible(false);
         flipButton.setVisible(false);
         practiceOverButton.setVisible(true);
@@ -118,8 +134,6 @@ public class PracticeBoxController extends ParentController {
             Image image = new Image(new ByteArrayInputStream(imageData));
             chunkImageView.setImage(image);
         } else {
-            // Handle case where imageData is empty or null
-            // You can set a placeholder image or display a message
             System.out.println("No image data available.");
         }
     }
@@ -127,5 +141,13 @@ public class PracticeBoxController extends ParentController {
     @FXML
     private void returnToMyBoxes(MouseEvent mouseEvent) {
         redirect(mouseEvent, "my-boxes");
+    }
+
+    @FXML
+    private void showAnswer(MouseEvent mouseEvent) {
+        showAnswerButton.setVisible(false);
+        termText.setText(handler.getCurrentChunk().getTerm() + " = " + handler.getCurrentChunk().getAnswer());
+        termText.setVisible(true);
+        flipButton.setVisible(false);
     }
 }
