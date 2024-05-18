@@ -39,6 +39,28 @@ public class BoxPracticeHandler {
         initializeChunksAndCurrentChunk();
     }
 
+    // checks if levelToPractice is an empty list, then checks the next level to practice
+    private void initializeChunksAndCurrentChunk() {
+        while (levelCounter < numOfLevels) {
+            int currentLevel = levelsToPractice.get(levelCounter);
+            this.chunksInLevel = boxToPractice.getLevelList(currentLevel);
+
+            if (chunksInLevel != null && !chunksInLevel.isEmpty()) {
+                this.currentChunk = chunksInLevel.get(0);
+                return;
+            } else {
+
+                levelCounter++;
+            }
+        }
+
+        // if all levels to practice are empty
+        this.chunksInLevel = new ArrayList<>();
+        this.currentChunk = null;
+        this.practiceOver = true;
+        System.out.println("No chunks to practice");
+    }
+
     public void knowChunk() {
         boxToPractice.moveToNextLevel(getCurrentChunk());
         setNextChunk();
@@ -79,6 +101,9 @@ public class BoxPracticeHandler {
             this.chunkCounter = 0;
             updateLevelCounter();
         }
+    }
+    private void setCurrentChunk(Chunk chunk) {
+        this.currentChunk = chunk;
     }
 
     private void setChunksInLevel(int level) {
@@ -125,31 +150,9 @@ public class BoxPracticeHandler {
         return currentChunk;
     }
 
-    private void setCurrentChunk(Chunk chunk) {
-        this.currentChunk = chunk;
-    }
 
-    // checks if levelToPractice is an empty list, then checks the next level to practice
-    private void initializeChunksAndCurrentChunk() {
-        while (levelCounter < numOfLevels) {
-            int currentLevel = levelsToPractice.get(levelCounter);
-            this.chunksInLevel = boxToPractice.getLevelList(currentLevel);
 
-            if (chunksInLevel != null && !chunksInLevel.isEmpty()) {
-                this.currentChunk = chunksInLevel.get(0);
-                return;
-            } else {
 
-                levelCounter++;
-            }
-        }
-
-        // if all levels to practice are empty
-        this.chunksInLevel = new ArrayList<>();
-        this.currentChunk = null;
-        this.practiceOver = true;
-        System.out.println("No chunks to practice");
-    }
 
 
 }
