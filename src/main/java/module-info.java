@@ -5,6 +5,7 @@ module com.nisbeterik.ChunkR {
     requires com.fasterxml.jackson.datatype.jsr310;
     requires java.desktop;
     requires javafx.swing;
+    requires javafx.media;
 
     // Opens for FXML reflective access
     opens com.nisbeterik.chunkr to javafx.fxml;

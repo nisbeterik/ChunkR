@@ -3,12 +3,13 @@
 <?import javafx.scene.canvas.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.nisbeterik.chunkr.controller.CreateChunkController">
    <children>
-      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="600.0" prefWidth="800.0">
+      <AnchorPane layoutX="14.0" minHeight="0.0" minWidth="0.0" prefHeight="600.0" prefWidth="800.0">
          <children>
-            <Button fx:id="createChunkButton" layoutX="345.0" layoutY="530.0" mnemonicParsing="false" onMouseClicked="#pressCreateChunk" prefHeight="32.0" prefWidth="119.0" text="Create chunk" />
+            <Button fx:id="createChunkButton" layoutX="184.0" layoutY="530.0" mnemonicParsing="false" onMouseClicked="#pressCreateChunk" prefHeight="32.0" prefWidth="119.0" text="Create chunk" />
             <Label fx:id="termLabel" layoutX="216.0" layoutY="183.0" text="Enter term" />
             <TextField fx:id="termField" layoutX="169.0" layoutY="217.0" prefHeight="83.0" prefWidth="149.0" />
             <Label fx:id="definitionLabel" layoutX="210.0" layoutY="332.0" text="Enter answer" />
@@ -22,7 +23,14 @@
                   <Canvas fx:id="drawCanvas" height="306.0" width="374.0" />
                </children>
             </StackPane>
-            <Label layoutX="506.0" layoutY="99.0" text="Draw image for chunk" />
+            <Label layoutX="506.0" layoutY="78.0" text="Draw image for chunk" />
+            <Button fx:id="clearDrawingButton" layoutX="623.0" layoutY="482.0" mnemonicParsing="false" onMouseClicked="#clearCanvas" prefHeight="32.0" prefWidth="104.0" text="Clear Drawing" />
+            <Button fx:id="undoButton" layoutX="402.0" layoutY="482.0" mnemonicParsing="false" onMouseClicked="#undoLastChange" prefHeight="32.0" prefWidth="104.0" text="Undo" />
+            <ColorPicker fx:id="colorPicker" layoutX="377.0" layoutY="100.0" prefHeight="32.0" prefWidth="104.0">
+               <value>
+                  <Color />
+               </value></ColorPicker>
+            <Button fx:id="selectFileButton" layoutX="21.0" layoutY="534.0" mnemonicParsing="false" text="Upload mp3 file" />
          </children>
       </AnchorPane>
    </children>

@@ -10,10 +10,15 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.scene.text.Text;
 import javafx.scene.layout.VBox;
 
 import java.io.ByteArrayInputStream;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.Base64;
 
 
@@ -30,6 +35,7 @@ public class PracticeBoxController extends ParentController {
     public ImageView chunkImageView;
     public Button showAnswerButton;
     public VBox vboxOne;
+    public Button playAudioButton;
     @FXML
     private Text termText; // Changed from Label to Text
     @FXML
@@ -39,6 +45,7 @@ public class PracticeBoxController extends ParentController {
     private boolean termFlipped;
     LeitnerBoxRepository leitnerBoxRepository = Repositories.getLeitnerBoxRepository();
     BoxPracticeHandler handler;
+    private MediaPlayer mediaPlayer;
 
 
 
@@ -150,4 +157,30 @@ public class PracticeBoxController extends ParentController {
         termText.setVisible(true);
         flipButton.setVisible(false);
     }
+
+    @FXML
+    public void playAudio(MouseEvent mouseEvent) {
+        if (mediaPlayer != null) {
+            mediaPlayer.stop();
+        }
+        String base64Audio = handler.getCurrentChunk().getAudioData();
+        if (base64Audio != null && !base64Audio.isEmpty()) {
+            try {
+                byte[] audioData = Base64.getDecoder().decode(base64Audio);
+                File tempAudioFile = File.createTempFile("audio", ".tmp");
+                try (FileOutputStream fos = new FileOutputStream(tempAudioFile)) {
+                    fos.write(audioData);
+                }
+                Media media = new Media(tempAudioFile.toURI().toString());
+                mediaPlayer = new MediaPlayer(media);
+                mediaPlayer.play();
+            } catch (IOException e) {
+                e.printStackTrace();
+                System.out.println("Error playing audio.");
+            }
+        } else {
+            System.out.println("No audio data available.");
+        }
+    }
+
 }

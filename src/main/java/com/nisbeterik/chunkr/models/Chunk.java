@@ -12,28 +12,36 @@ public class Chunk {
     private String term;
     private String answer;
     private int level;
-    private String imageData; // Base64 encoded image data
+    private String imageData; // base64 encoded
+    private String audioData; // base64 encoded
 
     public Chunk(String term, String answer) {
         this.term = term;
         this.answer = answer;
         this.level = 0; // 0 = 1 since Arrays have 0-index
         this.imageData = "";
+        this.audioData = "";
     }
 
     @JsonCreator
     public Chunk(@JsonProperty("term") String term,
                  @JsonProperty("answer") String answer,
                  @JsonProperty("level") int level,
-                 @JsonProperty("imageData") String imageData) {
+                 @JsonProperty("imageData") String imageData,
+    @JsonProperty("audioData") String audioData) {
         this.term = term;
         this.answer = answer;
         this.level = level;
         this.imageData = imageData;
+        this.audioData = audioData;
     }
 
     public String getTerm() {
         return term;
+    }
+
+    public String getAudioData() {
+        return audioData;
     }
 
     public String getAnswer() {
@@ -62,13 +70,12 @@ public class Chunk {
         if (o == null || getClass() != o.getClass()) return false;
         Chunk chunk = (Chunk) o;
         return Objects.equals(term, chunk.term) &&
-                Objects.equals(answer, chunk.answer) &&
-                Objects.equals(imageData, chunk.imageData);
+                Objects.equals(answer, chunk.answer);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(term, answer, imageData);
+        return Objects.hash(term, answer);
     }
 
     @Override
