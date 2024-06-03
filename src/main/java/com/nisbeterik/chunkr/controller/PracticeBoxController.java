@@ -24,28 +24,35 @@ import java.util.Base64;
 
 public class PracticeBoxController extends ParentController {
 
-    public Label boxName;
-    public Label currentLevel;
+
+    // buttons
+
     public Button knowButton;
     public Button dontKnowButton;
     public Button practiceOverButton;
     public Button flipButton;
-    public Label doYouKnowLabel;
     public Button endPracticeButton;
-    public ImageView chunkImageView;
     public Button showAnswerButton;
-    public VBox vboxOne;
     public Button playAudioButton;
+
+    // labels
+
+    public Label boxName;
+    public Label currentLevel;
+    public Label doYouKnowLabel;
+
+    public ImageView chunkImageView;
+    public VBox vboxOne;
     @FXML
     private Text termText; // Changed from Label to Text
     @FXML
     private ScrollPane termScrollPane; // Added ScrollPane for text wrapping
-
-    private String term;
+    private MediaPlayer mediaPlayer;
     private boolean termFlipped;
+
     LeitnerBoxRepository leitnerBoxRepository = Repositories.getLeitnerBoxRepository();
     BoxPracticeHandler handler;
-    private MediaPlayer mediaPlayer;
+
 
 
 
@@ -54,20 +61,18 @@ public class PracticeBoxController extends ParentController {
         handler = new BoxPracticeHandler(leitnerBoxRepository.getLeitnerBoxByName(practiceBox));
         termText.setWrappingWidth(200);
         termScrollPane.setContent(new VBox(termText));
-        termText.setText(handler.getCurrentChunk().getTerm());
-        termFlipped = false;
-        boxName.setText(handler.getName());
-        currentLevel.setText("Level: " + handler.getCurrentLevel());
-        practiceOverButton.setVisible(false);
-        loadImageFromBase64(handler.getCurrentChunk().getImageData());
-        chunkImageView.setVisible(false);
-        showAnswerButton.setVisible(false);
-        System.out.println(handler.getChunksInLevel().size());
-        if(handler.getCurrentChunk().getAudioData() == null) {
-            playAudioButton.setVisible(false);
+        if(!handler.isPracticeOver()) {
+            initializeText();
+            initializeButtonVisibility();
+            loadImageFromBase64(handler.getCurrentChunk().getImageData());
+            vboxOne.prefHeightProperty().bind(termScrollPane.heightProperty().add(20));
+            termFlipped = false;
+        } else
+        {
+            practiceOver();
         }
 
-        vboxOne.prefHeightProperty().bind(termScrollPane.heightProperty().add(20));
+
     }
 
     private void updateTermLabel() {
@@ -143,6 +148,8 @@ public class PracticeBoxController extends ParentController {
         doYouKnowLabel.setVisible(false);
         flipButton.setVisible(false);
         practiceOverButton.setVisible(true);
+        showAnswerButton.setVisible(false);
+        playAudioButton.setVisible(false);
     }
 
     public void loadImageFromBase64(String base64ImageData) {
@@ -191,6 +198,21 @@ public class PracticeBoxController extends ParentController {
         } else {
             System.out.println("No audio data available.");
         }
+    }
+
+    private void initializeButtonVisibility() {
+        practiceOverButton.setVisible(false);
+        chunkImageView.setVisible(false);
+        showAnswerButton.setVisible(false);
+        if(handler.getCurrentChunk().getAudioData() == null) {
+            playAudioButton.setVisible(false);
+        }
+    }
+
+    private void initializeText() {
+        termText.setText(handler.getCurrentChunk().getTerm());
+        boxName.setText(handler.getName());
+        currentLevel.setText("Level: " + handler.getCurrentLevel());
     }
 
 }
