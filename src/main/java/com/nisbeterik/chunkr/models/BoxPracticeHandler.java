@@ -20,6 +20,8 @@ public class BoxPracticeHandler {
 
     private List<Chunk> chunksInLevel;
 
+    private int levelSize = 0;
+
     private Chunk currentChunk;
 
     private boolean practiceOver = false;
@@ -45,7 +47,9 @@ public class BoxPracticeHandler {
             int currentLevel = levelsToPractice.get(levelCounter);
             this.chunksInLevel = boxToPractice.getLevelList(currentLevel);
 
+
             if (chunksInLevel != null && !chunksInLevel.isEmpty()) {
+                levelSize = chunksInLevel.size();
                 this.currentChunk = chunksInLevel.get(0);
                 return;
             } else {
@@ -63,6 +67,7 @@ public class BoxPracticeHandler {
 
     public void knowChunk() {
         boxToPractice.moveToNextLevel(getCurrentChunk());
+        System.out.println("know");
         setNextChunk();
     }
 
@@ -89,6 +94,7 @@ public class BoxPracticeHandler {
                 updateLevelCounter();
             } else {
                 setCurrentChunk(getChunksInLevel().get(chunkCounter));
+                levelSize = chunksInLevel.size();
             }
 
 
@@ -97,7 +103,7 @@ public class BoxPracticeHandler {
 
     private void updateChunkCounter() {
         this.chunkCounter++;
-        if(this.chunkCounter >= chunksInLevel.size()) {
+        if(this.chunkCounter >= levelSize) {
             this.chunkCounter = 0;
             updateLevelCounter();
         }
