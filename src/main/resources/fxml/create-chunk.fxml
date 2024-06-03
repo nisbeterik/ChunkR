@@ -30,7 +30,7 @@
                <value>
                   <Color />
                </value></ColorPicker>
-            <Button fx:id="selectFileButton" layoutX="97.0" layoutY="481.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="101.0" text="Upload mp3 file" />
+            <Button fx:id="selectFileButton" layoutX="76.0" layoutY="494.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="200.0" text="Upload mp3 file" />
          </children>
       </AnchorPane>
    </children>
