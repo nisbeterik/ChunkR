@@ -7,16 +7,15 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-import java.io.IOException;
-
 public class ParentController {
 
 
 
-    protected static String practiceBox;
+    protected static String selectedBox;
 
-    public void setPracticeBox(String name) {
-        practiceBox = name;
+
+    public void setSelectedBox(String name) {
+        selectedBox = name;
     }
 
     protected void redirect(Event event, String fxml) {

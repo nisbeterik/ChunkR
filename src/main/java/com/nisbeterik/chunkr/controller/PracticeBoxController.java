@@ -58,7 +58,7 @@ public class PracticeBoxController extends ParentController {
 
     @FXML
     public void initialize() {
-        handler = new BoxPracticeHandler(leitnerBoxRepository.getLeitnerBoxByName(practiceBox));
+        handler = new BoxPracticeHandler(leitnerBoxRepository.getLeitnerBoxByName(selectedBox));
         termText.setWrappingWidth(200);
         termScrollPane.setContent(new VBox(termText));
         if(!handler.isPracticeOver()) {
@@ -168,7 +168,7 @@ public class PracticeBoxController extends ParentController {
 
     @FXML
     private void returnToMyBoxes(MouseEvent mouseEvent) {
-        redirect(mouseEvent, "my-boxes");
+        redirect(mouseEvent, "practice-boxes");
     }
 
     @FXML

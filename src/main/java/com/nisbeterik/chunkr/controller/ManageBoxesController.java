@@ -3,30 +3,35 @@ package com.nisbeterik.chunkr.controller;
 import com.nisbeterik.chunkr.models.LeitnerBox;
 import com.nisbeterik.chunkr.repository.LeitnerBoxRepository;
 import com.nisbeterik.chunkr.repository.Repositories;
-
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.ObservableSet;
 import javafx.fxml.FXML;
-import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.ListCell;
+import javafx.scene.control.ListView;
 import javafx.scene.input.MouseEvent;
 
-public class MyBoxesController extends ParentController {
-    public Button practiceBoxButton;
+public class ManageBoxesController extends ParentController {
+
+    @FXML
+    public Button manageChunksButton;
+    @FXML
+    public Button backToHomePageButton;
+    @FXML
+    public Button deleteBoxButton;
+
     private LeitnerBoxRepository leitnerBoxRepository = Repositories.getLeitnerBoxRepository();
     @FXML
     public ListView<LeitnerBox> leitnerboxListView;
-    @FXML
-    public Label myBoxesLabel;
-    @FXML
-    public Button backToHomePageButton;
+
+
 
     @FXML
     void initialize() {
-        myBoxesLabel.setText("My Boxes");
-        backToHomePageButton.setText("Back to Home Page");
-        practiceBoxButton.setVisible(false);
-
+        deleteBoxButton.setVisible(false);
+        manageChunksButton.setVisible(false);
         ObservableSet<LeitnerBox> boxSet = FXCollections.observableSet(leitnerBoxRepository.getAll());
         ObservableList<LeitnerBox> boxes = FXCollections.observableArrayList(boxSet);
 
@@ -44,17 +49,26 @@ public class MyBoxesController extends ParentController {
         });
         leitnerboxListView.setItems(boxes);
         leitnerboxListView.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
-            practiceBoxButton.setVisible(true);
+            deleteBoxButton.setVisible(true);
+            manageChunksButton.setVisible(true);
         });
+
     }
 
-    public void pressPracticeBox(MouseEvent mouseEvent) {
-        LeitnerBox selectedBox = leitnerboxListView.getSelectionModel().getSelectedItem();
-        setPracticeBox(selectedBox.getName());
-        redirect(mouseEvent, "practice-box");
-    }
-
-    public void pressHomePageButton(MouseEvent mouseEvent) {
+    @FXML
+    private void pressHomePageButton(MouseEvent mouseEvent) {
         redirect(mouseEvent, "home-page.fxml");
     }
+
+    @FXML
+    private void pressDeleteBoxButton(MouseEvent mouseEvent) {
+        LeitnerBox selectedBox = leitnerboxListView.getSelectionModel().getSelectedItem();
+        leitnerBoxRepository.removeByName(selectedBox.getName());
+        initialize();
+    }
+
+    @FXML
+    void pressManageChunks(MouseEvent mouseEvent) {
+    }
+
 }

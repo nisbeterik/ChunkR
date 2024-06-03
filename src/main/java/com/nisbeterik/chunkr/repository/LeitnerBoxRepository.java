@@ -40,6 +40,18 @@ public class LeitnerBoxRepository implements Repository<LeitnerBox> {
                 });
     }
 
+    public boolean removeByName(String name) {
+        Iterator<LeitnerBox> iterator = boxes.iterator();
+        while (iterator.hasNext()) {
+            LeitnerBox box = iterator.next();
+            if (box.getName().equals(name)) {
+                iterator.remove();
+                return true;
+            }
+        }
+        return false;
+    }
+
 
 
     @Override

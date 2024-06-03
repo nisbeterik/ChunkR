@@ -12,6 +12,7 @@ public class HomePageController extends ParentController{
     public Button createBoxButton;
     public Button myBoxesButton;
     public Button createChunkButton;
+    public Button manageBoxesButton;
 
     @FXML
     void initialize() {
@@ -24,4 +25,7 @@ public class HomePageController extends ParentController{
     }
 
     public void pressCreateChunkButton(MouseEvent mouseEvent)  { redirect(mouseEvent, "create-chunk.fxml"); }
+
+    public void pressManageBoxesButton(MouseEvent mouseEvent)  { redirect(mouseEvent, "manage-boxes.fxml");
+    }
 }
