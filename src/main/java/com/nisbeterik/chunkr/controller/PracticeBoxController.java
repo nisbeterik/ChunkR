@@ -77,12 +77,15 @@ public class PracticeBoxController extends ParentController {
 
     private void updateTermLabel() {
         if(!handler.isPracticeOver()) {
-            termFlipped = false;
+            if(termFlipped) {
+                flipTerm();
+            }
             termText.setText(handler.getCurrentChunk().getTerm()); // Change to setText for Text node
             currentLevel.setText(String.valueOf(handler.getCurrentLevel()));
             loadImageFromBase64(handler.getCurrentChunk().getImageData());
             chunkImageView.setVisible(false);
             flipButton.setVisible(true);
+
             if(handler.getCurrentChunk().getAudioData() == null) {
                 playAudioButton.setVisible(false);
             } else
@@ -118,6 +121,7 @@ public class PracticeBoxController extends ParentController {
         handler.knowChunk();
         if(!handler.isPracticeOver()) {
             updateTermLabel();
+
         }
         else {
             practiceOver();
