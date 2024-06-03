@@ -62,6 +62,10 @@ public class PracticeBoxController extends ParentController {
         loadImageFromBase64(handler.getCurrentChunk().getImageData());
         chunkImageView.setVisible(false);
         showAnswerButton.setVisible(false);
+        System.out.println(handler.getChunksInLevel().size());
+        if(handler.getCurrentChunk().getAudioData() == null) {
+            playAudioButton.setVisible(false);
+        }
 
         vboxOne.prefHeightProperty().bind(termScrollPane.heightProperty().add(20));
     }
@@ -74,6 +78,12 @@ public class PracticeBoxController extends ParentController {
             loadImageFromBase64(handler.getCurrentChunk().getImageData());
             chunkImageView.setVisible(false);
             flipButton.setVisible(true);
+            if(handler.getCurrentChunk().getAudioData() == null) {
+                playAudioButton.setVisible(false);
+            } else
+            {
+                playAudioButton.setVisible(true);
+            }
         }
         else {
             practiceOver();

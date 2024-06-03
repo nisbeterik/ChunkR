@@ -1,2 +1,4 @@
-package com.nisbeterik.chunkr;public class LeitnerBoxTest {
+package com.nisbeterik.chunkr;
+
+public class LeitnerBoxTest {
 }
