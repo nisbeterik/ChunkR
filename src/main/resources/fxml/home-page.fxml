@@ -10,8 +10,9 @@
          <font>
             <Font size="25.0" />
          </font></Label>
-      <Button fx:id="createBoxButton" layoutX="244.0" layoutY="226.0" mnemonicParsing="false" onMouseClicked="#pressCreateBoxButton" text="Create Leitner Box" />
-      <Button fx:id="myBoxesButton" layoutX="267.0" layoutY="188.0" mnemonicParsing="false" onMouseClicked="#pressMyBoxesButton" text="My Boxes" />
-      <Button fx:id="createChunkButton" layoutX="245.0" layoutY="268.0" mnemonicParsing="false" onMouseClicked="#pressCreateChunkButton" text="Create new chunk" />
+      <Button fx:id="createBoxButton" layoutX="244.0" layoutY="153.0" mnemonicParsing="false" onMouseClicked="#pressCreateBoxButton" text="Create Leitner Box" />
+      <Button fx:id="myBoxesButton" layoutX="260.0" layoutY="118.0" mnemonicParsing="false" onMouseClicked="#pressMyBoxesButton" text="Practice Box" />
+      <Button fx:id="createChunkButton" layoutX="245.0" layoutY="194.0" mnemonicParsing="false" onMouseClicked="#pressCreateChunkButton" text="Create new chunk" />
+      <Button layoutX="254.0" layoutY="229.0" mnemonicParsing="false" text="Manage Boxes" />
    </children>
 </AnchorPane>

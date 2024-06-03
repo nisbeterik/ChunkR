@@ -15,15 +15,12 @@ public class HomePageController extends ParentController{
 
     @FXML
     void initialize() {
-        headerLabel.setText("Home Page");
-        createBoxButton.setText("Create Leitner Box");
-        myBoxesButton.setText("My Boxes");
     }
 
     public void pressCreateBoxButton(MouseEvent mouseEvent) { redirect(mouseEvent, "create-leitnerbox.fxml"); }
 
     public void pressMyBoxesButton(MouseEvent mouseEvent) {
-        redirect(mouseEvent, "my-boxes");
+        redirect(mouseEvent, "practice-boxes");
     }
 
     public void pressCreateChunkButton(MouseEvent mouseEvent)  { redirect(mouseEvent, "create-chunk.fxml"); }
