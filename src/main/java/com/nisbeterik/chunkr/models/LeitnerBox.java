@@ -63,6 +63,14 @@ public class LeitnerBox {
         levels.get(Levels.LEVEL_1.ordinal()).add(chunk);
     }
 
+    public void deleteChunk(Chunk chunk) {
+        for (List<Chunk> level : levels) {
+            if (level.remove(chunk)) {
+                break;
+            }
+        }
+    }
+
     public void moveToNextLevel(Chunk chunk) {
         int currentLevel = chunk.getLevel();
         if (currentLevel >= 0 && currentLevel < NUM_LEVELS - 1) {
