@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.nisbeterik.chunkr.controller.ManageChunksController">
+   <children>
+      <ChoiceBox fx:id="levelsDropDown" layoutX="225.0" layoutY="40.0" prefWidth="150.0" />
+      <Button fx:id="backButton" layoutX="25.0" layoutY="40.0" mnemonicParsing="false" onMouseClicked="#backToManageBoxes" text="Back" />
+      <ListView fx:id="chunkList" layoutX="200.0" layoutY="100.0" prefHeight="200.0" prefWidth="200.0" />
+      <Button fx:id="deleteChunkButton" layoutX="256.0" layoutY="315.0" mnemonicParsing="false" onMouseClicked="#pressDeleteChunkButton" text="Delete Chunk" />
+   </children>
+</AnchorPane>

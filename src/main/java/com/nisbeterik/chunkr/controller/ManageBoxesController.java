@@ -69,6 +69,9 @@ public class ManageBoxesController extends ParentController {
 
     @FXML
     void pressManageChunks(MouseEvent mouseEvent) {
+        LeitnerBox selectedBox = leitnerboxListView.getSelectionModel().getSelectedItem();
+        setSelectedBox(selectedBox.getName());
+        redirect(mouseEvent, "manage-chunks");
     }
 
 }

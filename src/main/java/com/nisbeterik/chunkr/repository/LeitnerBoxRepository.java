@@ -22,7 +22,6 @@ public class LeitnerBoxRepository implements Repository<LeitnerBox> {
 
     public LeitnerBox getLeitnerBoxByName(String name) {
         for (LeitnerBox box : boxes) {
-            System.out.println("Checking box: " + box.getName());
             if (box.getName().equals(name)) {
                 return box;
             }
