@@ -1,0 +1,72 @@
+/* Define colors */
+.root {
+    -fx-base: #a8e6cf; /* Background color for the main container */
+    -fx-accent: #dcedc1; /* Accent color for buttons, borders, etc. */
+    -fx-highlight: #ffd3b6; /* Highlight color for selections */
+    -fx-control-inner-background: #ffaaa5; /* Inner background color for controls */
+    -fx-background-color: #a8e6cf; /* Background color for other containers */
+}
+
+/* AnchorPane styling */
+.anchor-pane {
+    -fx-background-color: #a8e6cf; /* Primary background color */
+}
+
+/* Button styling */
+.button {
+    -fx-background-color: #dcedc1; /* Button background color */
+    -fx-text-fill: #333333; /* Button text color - darker for readability */
+    -fx-font-size: 14px; /* Font size for buttons */
+    -fx-padding: 8px 15px; /* Padding for buttons */
+    -fx-background-radius: 5px; /* Rounded corners for buttons */
+    -fx-border-radius: 5px; /* Rounded corners for borders */
+}
+
+/* Button hover effect */
+.button:hover {
+    -fx-background-color: #ffd3b6; /* Background color when hovering over buttons */
+}
+
+/* Label styling */
+.label {
+    -fx-text-fill: #333333; /* Label text color - darker for readability */
+}
+
+/* TextField styling */
+.text-field {
+    -fx-background-color: #ffaaa5; /* TextField background color */
+    -fx-text-fill: #333333; /* TextField text color - darker for readability */
+    -fx-prompt-text-fill: derive(-fx-control-inner-background, -30%); /* Prompt text color */
+}
+
+/* ListView styling */
+.list-view {
+    -fx-background-color: #ffaaa5; /* ListView background color */
+    -fx-control-inner-background: #ffaaa5; /* ListView control background */
+    -fx-text-fill: #333333; /* ListView text color - darker for readability */
+    -fx-font-size: 14px; /* Font size for list items */
+}
+
+/* ListView cell styling */
+.list-cell {
+    -fx-background-color: transparent; /* Transparent background for list cells */
+    -fx-text-fill: #333333; /* List cell text color - darker for readability */
+}
+
+.list-cell:selected {
+    -fx-background-color: #ffd3b6; /* Background color for selected list cells */
+    -fx-text-fill: #333333; /* Text color for selected list cells - darker for readability */
+}
+
+/* ChoiceBox styling */
+.choice-box {
+    -fx-background-color: #dcedc1; /* ChoiceBox background color */
+    -fx-text-fill: #333333; /* ChoiceBox text color - darker for readability */
+}
+
+/* ChoiceBox menu styling */
+.combo-box-popup .list-view {
+    -fx-background-color: #ffaaa5; /* ChoiceBox dropdown background color */
+    -fx-control-inner-background: #ffaaa5; /* ChoiceBox dropdown control background */
+    -fx-text-fill: #333333; /* ChoiceBox dropdown text color - darker for readability */
+}

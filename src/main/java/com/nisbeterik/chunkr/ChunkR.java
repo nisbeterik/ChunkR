@@ -31,6 +31,7 @@ public class ChunkR extends Application {
         final var hello = FXMLUtil.loadFxml("home-page");
 
         final var scene = new Scene((Parent) hello);
+        scene.getStylesheets().add(getClass().getResource("/css/colors.css").toExternalForm());
         stage.setScene(scene);
         stage.setResizable(false);
         stage.setOnCloseRequest(this::onCloseCallback);

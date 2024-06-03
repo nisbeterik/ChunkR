@@ -4,15 +4,15 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.nisbeterik.chunkr.controller.HomePageController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea"  xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.nisbeterik.chunkr.controller.HomePageController">
    <children>
-      <Label fx:id="headerLabel" layoutX="235.0" layoutY="43.0" text="Home page">
+      <Label fx:id="headerLabel" layoutX="266.0" layoutY="53.0" text="Home">
          <font>
             <Font size="25.0" />
          </font></Label>
-      <Button fx:id="createBoxButton" layoutX="244.0" layoutY="153.0" mnemonicParsing="false" onMouseClicked="#pressCreateBoxButton" text="Create Leitner Box" />
-      <Button fx:id="myBoxesButton" layoutX="260.0" layoutY="118.0" mnemonicParsing="false" onMouseClicked="#pressMyBoxesButton" text="Practice Box" />
-      <Button fx:id="createChunkButton" layoutX="245.0" layoutY="194.0" mnemonicParsing="false" onMouseClicked="#pressCreateChunkButton" text="Create new chunk" />
-      <Button fx:id="manageBoxesButton" layoutX="254.0" layoutY="229.0" mnemonicParsing="false" onMouseClicked="#pressManageBoxesButton" text="Manage Boxes" />
+      <Button fx:id="createBoxButton" layoutX="378.0" layoutY="188.0" mnemonicParsing="false" onMouseClicked="#pressCreateBoxButton" text="Create Box" />
+      <Button fx:id="myBoxesButton" layoutX="144.0" layoutY="188.0" mnemonicParsing="false" onMouseClicked="#pressMyBoxesButton" text="Practice Box" />
+      <Button fx:id="createChunkButton" layoutX="378.0" layoutY="298.0" mnemonicParsing="false" onMouseClicked="#pressCreateChunkButton" text="Create chunk" />
+      <Button fx:id="manageBoxesButton" layoutX="144.0" layoutY="298.0" mnemonicParsing="false" onMouseClicked="#pressManageBoxesButton" text="Manage Boxes" />
    </children>
 </AnchorPane>

@@ -1,4 +1,5 @@
 .canvasPane {
+    -fx-background-color: #FFFFFF;
     -fx-border-color: black;
     -fx-border-width: 2px;
     -fx-padding: 5px;

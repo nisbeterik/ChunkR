@@ -21,6 +21,7 @@ public class ParentController {
     protected void redirect(Event event, String fxml) {
         Parent fxmlFile = FXMLUtil.loadFxml(fxml);
         Scene scene = new Scene(fxmlFile);
+        scene.getStylesheets().add(getClass().getResource("/css/colors.css").toExternalForm());
         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         stage.setScene(scene);
         stage.show();

@@ -178,7 +178,7 @@ public class CreateChunkController extends ParentController {
     private String convertCanvasToImage(Canvas canvas) {
         // create snapshot
         SnapshotParameters params = new SnapshotParameters();
-        params.setFill(Color.TRANSPARENT);
+        params.setFill(Color.WHITE);
 
         // writeable image from snapshot
         WritableImage writableImage = new WritableImage((int) canvas.getWidth(), (int) canvas.getHeight());
