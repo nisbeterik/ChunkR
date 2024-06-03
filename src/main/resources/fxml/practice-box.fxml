@@ -5,8 +5,8 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.nisbeterik.chunkr.controller.PracticeBoxController">
-   <VBox fx:id="vboxOne" alignment="CENTER" layoutX="146.0" layoutY="163.0" prefWidth="306.0" spacing="20.0">
+<AnchorPane prefHeight="542.0" prefWidth="730.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.nisbeterik.chunkr.controller.PracticeBoxController">
+   <VBox fx:id="vboxOne" alignment="CENTER" layoutX="185.0" layoutY="163.0" prefWidth="306.0" spacing="20.0">
       <ScrollPane fx:id="termScrollPane" prefHeight="200.0" prefWidth="200.0">
          <content>
             <VBox>
@@ -17,17 +17,17 @@
       <Button fx:id="flipButton" onAction="#flipTerm" text="Flip" />
       <Button fx:id="practiceOverButton" mnemonicParsing="false" onMouseClicked="#returnToMyBoxes" text="Go Back" />
    </VBox>
-   <VBox alignment="CENTER" layoutX="228.0" layoutY="287.0" spacing="10.0">
+   <VBox alignment="CENTER" layoutX="266.0" layoutY="401.0" spacing="10.0">
       <Label fx:id="doYouKnowLabel" text="Do you know this term?" />
       <HBox spacing="20.0">
          <Button fx:id="knowButton" onAction="#knowTerm" text="Know" />
          <Button fx:id="dontKnowButton" onAction="#dontKnowTerm" text="Don't Know" />
       </HBox>
    </VBox>
-   <Label fx:id="boxName" layoutX="269.0" layoutY="38.0" />
-   <Label fx:id="currentLevel" layoutX="269.0" layoutY="71.0" />
+   <Label fx:id="boxName" layoutX="288.0" layoutY="38.0" prefHeight="17.0" prefWidth="100.0" />
+   <Label fx:id="currentLevel" layoutX="271.0" layoutY="59.0" prefHeight="17.0" prefWidth="133.0" />
    <Button fx:id="endPracticeButton" layoutX="37.0" layoutY="34.0" mnemonicParsing="false" onMouseClicked="#endPractice" text="End Practice" />
-   <ImageView fx:id="chunkImageView" fitHeight="200.0" fitWidth="200.0" layoutX="386.0" layoutY="80.0" />
-   <Button fx:id="showAnswerButton" layoutX="242.0" layoutY="127.0" mnemonicParsing="false" onMouseClicked="#showAnswer" text="Show Text Answer" />
-   <Button fx:id="playAudioButton" layoutX="65.0" layoutY="339.0" mnemonicParsing="false" onMouseClicked="#playAudio" text="Play Audio" />
+   <ImageView fx:id="chunkImageView" fitHeight="200.0" fitWidth="200.0" layoutX="516.0" />
+   <Button fx:id="showAnswerButton" layoutX="282.0" layoutY="123.0" mnemonicParsing="false" onMouseClicked="#showAnswer" text="Show Text Answer" />
+   <Button fx:id="playAudioButton" layoutX="29.0" layoutY="376.0" mnemonicParsing="false" onMouseClicked="#playAudio" text="Play Audio" />
 </AnchorPane>
