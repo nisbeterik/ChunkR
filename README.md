@@ -17,6 +17,7 @@ Terms you know, progress to the next level. Terms you don't know, go back to lev
 1. Create a box for your language: ![Create box](images/Create_box.jpg)
 2. Create chunks (terms) you want to practice, upload audio file for pronounciation and draw a picture to help you remember better: ![Create chunk](images/create_chunk.jpg) 
 3. Practice! 
+
 ![Practice1](images/prac1.jpg) ![Practice2](images/prac2.jpg) ![Practice3](images/prac3.jpg)
 
 ## Requirements
