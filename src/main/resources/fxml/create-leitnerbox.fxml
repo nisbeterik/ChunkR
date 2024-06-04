@@ -1,13 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.nisbeterik.chunkr.controller.CreateLeitnerboxController">
    <children>
-      <TextField fx:id="createBoxField" layoutX="186.0" layoutY="100.0" prefHeight="25.0" prefWidth="236.0" />
-      <Label fx:id="createBoxLabel" layoutX="253.0" layoutY="75.0" text="Enter name for box" />
-      <Button fx:id="createBoxButton" layoutX="263.0" layoutY="145.0" mnemonicParsing="false" onMouseClicked="#pressCreateBox" text="Create box" />
-      <Button fx:id="homePageButton" layoutX="255.0" layoutY="293.0" mnemonicParsing="false" onMouseClicked="#pressHomePage" text="Back to Home" />
+      <TextField fx:id="createBoxField" layoutX="182.0" layoutY="165.0" prefHeight="25.0" prefWidth="236.0" />
+      <Label fx:id="createBoxLabel" layoutX="232.0" layoutY="126.0" text="Enter name for box">
+         <font>
+            <Font name="Arial Bold" size="15.0" />
+         </font></Label>
+      <Button fx:id="createBoxButton" layoutX="246.0" layoutY="206.0" mnemonicParsing="false" onMouseClicked="#pressCreateBox" prefHeight="47.0" prefWidth="108.0" text="Create box" />
+      <Button fx:id="homePageButton" layoutX="14.0" layoutY="25.0" mnemonicParsing="false" onMouseClicked="#pressHomePage" text="Back to Home" />
+      <ImageView fitHeight="102.0" fitWidth="91.0" layoutX="468.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../chunkr-icon-transparent.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

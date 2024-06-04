@@ -1,18 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea"  xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.nisbeterik.chunkr.controller.HomePageController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.nisbeterik.chunkr.controller.HomePageController">
    <children>
-      <Label fx:id="headerLabel" layoutX="266.0" layoutY="53.0" text="Home">
-         <font>
-            <Font size="25.0" />
-         </font></Label>
-      <Button fx:id="createBoxButton" layoutX="378.0" layoutY="188.0" mnemonicParsing="false" onMouseClicked="#pressCreateBoxButton" text="Create Box" />
-      <Button fx:id="myBoxesButton" layoutX="144.0" layoutY="188.0" mnemonicParsing="false" onMouseClicked="#pressMyBoxesButton" text="Practice Box" />
-      <Button fx:id="createChunkButton" layoutX="378.0" layoutY="298.0" mnemonicParsing="false" onMouseClicked="#pressCreateChunkButton" text="Create chunk" />
-      <Button fx:id="manageBoxesButton" layoutX="144.0" layoutY="298.0" mnemonicParsing="false" onMouseClicked="#pressManageBoxesButton" text="Manage Boxes" />
+      <Button fx:id="createBoxButton" layoutX="343.0" layoutY="178.0" mnemonicParsing="false" onMouseClicked="#pressCreateBoxButton" prefHeight="45.0" prefWidth="155.0" text="Create Box" />
+      <Button fx:id="myBoxesButton" layoutX="102.0" layoutY="178.0" mnemonicParsing="false" onMouseClicked="#pressMyBoxesButton" prefHeight="45.0" prefWidth="155.0" text="Practice Box" />
+      <Button fx:id="createChunkButton" layoutX="343.0" layoutY="298.0" mnemonicParsing="false" onMouseClicked="#pressCreateChunkButton" prefHeight="45.0" prefWidth="155.0" text="Create chunk" />
+      <Button fx:id="manageBoxesButton" layoutX="102.0" layoutY="298.0" mnemonicParsing="false" onMouseClicked="#pressManageBoxesButton" prefHeight="45.0" prefWidth="155.0" text="Manage Boxes" />
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="180.0" layoutY="60.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../chunkr-high-resolution-logo-transparent.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

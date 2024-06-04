@@ -2,22 +2,23 @@
 
 <?import javafx.scene.canvas.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.paint.*?>
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.nisbeterik.chunkr.controller.CreateChunkController">
    <children>
-      <AnchorPane layoutX="14.0" layoutY="14.0" minHeight="0.0" minWidth="0.0" prefHeight="600.0" prefWidth="800.0">
+      <AnchorPane layoutX="28.0" layoutY="8.0" minHeight="0.0" minWidth="0.0" prefHeight="600.0" prefWidth="800.0">
          <children>
-            <Button fx:id="createChunkButton" layoutX="341.0" layoutY="532.0" mnemonicParsing="false" onMouseClicked="#pressCreateChunk" prefHeight="32.0" prefWidth="119.0" text="Create chunk" />
+            <Button fx:id="createChunkButton" layoutX="602.0" layoutY="494.0" mnemonicParsing="false" onMouseClicked="#pressCreateChunk" prefHeight="32.0" prefWidth="119.0" text="Create chunk" />
             <Label fx:id="termLabel" layoutX="147.0" layoutY="184.0" text="Enter term" />
             <TextField fx:id="termField" layoutX="93.0" layoutY="218.0" prefHeight="96.0" prefWidth="165.0" />
             <Label fx:id="definitionLabel" layoutX="142.0" layoutY="327.0" text="Enter answer" />
             <TextField fx:id="definitionField" layoutX="93.0" layoutY="360.0" prefHeight="96.0" prefWidth="165.0" />
-            <ChoiceBox fx:id="boxDropDown" layoutX="25.0" layoutY="103.0" prefWidth="150.0" />
-            <Label layoutX="25.0" layoutY="70.0" text="Choose Box" />
-            <Label fx:id="reqChoiceLabel" layoutX="32.0" layoutY="107.0" textFill="RED" />
-            <Button fx:id="backToHomePage" layoutX="34.0" layoutY="14.0" mnemonicParsing="false" onMouseClicked="#pressBackToMenu" text="Back To Home Page" />
+            <ChoiceBox fx:id="boxDropDown" layoutX="93.0" layoutY="104.0" prefWidth="150.0" />
+            <Label layoutX="93.0" layoutY="71.0" text="Choose Box" />
+            <Label fx:id="reqChoiceLabel" layoutX="100.0" layoutY="108.0" textFill="RED" />
+            <Button fx:id="backToHomePage" layoutX="18.0" layoutY="14.0" mnemonicParsing="false" onMouseClicked="#pressBackToMenu" prefHeight="25.0" prefWidth="150.0" text="Back to Home" />
             <StackPane fx:id="canvasPane" layoutX="377.0" layoutY="147.0" prefHeight="306.0" prefWidth="374.0" styleClass="canvasPane" stylesheets="@../CSS/canvas-style.css">
                <children>
                   <Canvas fx:id="drawCanvas" height="306.0" width="374.0" />
@@ -30,7 +31,12 @@
                <value>
                   <Color />
                </value></ColorPicker>
-            <Button fx:id="selectFileButton" layoutX="76.0" layoutY="494.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="200.0" text="Upload mp3 file" />
+            <Button fx:id="selectFileButton" layoutX="93.0" layoutY="494.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="165.0" text="Upload mp3 file" />
+            <ImageView fitHeight="85.0" fitWidth="63.0" layoutX="682.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../chunkr-icon-transparent.png" />
+               </image>
+            </ImageView>
          </children>
       </AnchorPane>
    </children>

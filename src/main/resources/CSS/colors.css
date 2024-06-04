@@ -4,47 +4,65 @@
     -fx-accent: #dcedc1; /* Accent color for buttons, borders, etc. */
     -fx-highlight: #ffd3b6; /* Highlight color for selections */
     -fx-control-inner-background: #ffaaa5; /* Inner background color for controls */
-    -fx-background-color: #a8e6cf; /* Background color for other containers */
+    -fx-background-color: linear-gradient(to bottom, #a8e6cf, #dcedc1); /* Background color for other containers */
+    -fx-font-family: Arial;
+    -fx-font-weight: bold;
 }
 
 /* AnchorPane styling */
 .anchor-pane {
-    -fx-background-color: #a8e6cf; /* Primary background color */
+    -fx-background-color: linear-gradient(to bottom, #a8e6cf, #dcedc1); /* Primary background color */
 }
 
 /* Button styling */
 .button {
-    -fx-background-color: #dcedc1; /* Button background color */
-    -fx-text-fill: #333333; /* Button text color - darker for readability */
-    -fx-font-size: 14px; /* Font size for buttons */
-    -fx-padding: 8px 15px; /* Padding for buttons */
-    -fx-background-radius: 5px; /* Rounded corners for buttons */
-    -fx-border-radius: 5px; /* Rounded corners for borders */
+    -fx-font-size: 15px;
+    -fx-font-family: Arial;
+    -fx-border-width: 1px;
+    -fx-border-color: rgba(235, 188, 222, 1);
+    -fx-font-weight: bold;
+    -fx-background-radius: 6px; /* Applies to all corners */
+    -fx-background-insets: 0, 1; /* Adjust as needed for shadow effect */
+    -fx-effect: dropshadow(one-pass-box, rgba(231, 203, 222, 1), 1, 0.0, 0, 1); /* Adjust shadow effect */
+    -fx-background-color: linear-gradient(rgba(255, 195, 192, 1), rgba(192, 240, 117, 1));
+    -fx-text-inner-shadow: inset 0 1 0 #c70067; /* Adjust text shadow */
+}
+
+.outline.button .text {
+    -fx-fill: white;
+    -fx-stroke: black;
+    -fx-stroke-width: 2px;
 }
 
 /* Button hover effect */
 .button:hover {
-    -fx-background-color: #ffd3b6; /* Background color when hovering over buttons */
+    -fx-background-color: linear-gradient(rgba(192, 240, 117, 1), rgba(255, 195, 192, 1));
 }
 
 /* Label styling */
 .label {
     -fx-text-fill: #333333; /* Label text color - darker for readability */
+    -fx-font-family: Arial;
+    -fx-font-weight: bold;
 }
 
 /* TextField styling */
 .text-field {
-    -fx-background-color: #ffaaa5; /* TextField background color */
+    -fx-background-color: #FFFFFF; /* TextField background color */
     -fx-text-fill: #333333; /* TextField text color - darker for readability */
     -fx-prompt-text-fill: derive(-fx-control-inner-background, -30%); /* Prompt text color */
+    -fx-background-radius: 5px;
+    -fx-border-radius: 5px;
 }
 
 /* ListView styling */
 .list-view {
-    -fx-background-color: #ffaaa5; /* ListView background color */
-    -fx-control-inner-background: #ffaaa5; /* ListView control background */
+    -fx-background-color: #ffc3c0; /* ListView background color */
+    -fx-control-inner-background: #ffc3c0; /* ListView control background */
     -fx-text-fill: #333333; /* ListView text color - darker for readability */
     -fx-font-size: 14px; /* Font size for list items */
+    -fx-background-radius: 5px;
+    -fx-border-radius: 5px;
 }
 
 /* ListView cell styling */
@@ -62,11 +80,15 @@
 .choice-box {
     -fx-background-color: #dcedc1; /* ChoiceBox background color */
     -fx-text-fill: #333333; /* ChoiceBox text color - darker for readability */
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
 }
 
 /* ChoiceBox menu styling */
 .combo-box-popup .list-view {
-    -fx-background-color: #ffaaa5; /* ChoiceBox dropdown background color */
-    -fx-control-inner-background: #ffaaa5; /* ChoiceBox dropdown control background */
+    -fx-background-color: #ffc3c0; /* ChoiceBox dropdown background color */
+    -fx-control-inner-background: #ffc3c0; /* ChoiceBox dropdown control background */
     -fx-text-fill: #333333; /* ChoiceBox dropdown text color - darker for readability */
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
 }
